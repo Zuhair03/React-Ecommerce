@@ -1,0 +1,13 @@
+body{
+    background-color: #e7e7e7 !important;
+}
+
+.map iframe{
+    border: 2px solid;
+    height:600px !important;
+    width: 100%;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: black;
+}
