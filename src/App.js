@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Home/Home';
 import Contact from './Contact/Contact';
 import Shop from './Shop/Shop';
+
 function App() {
   return (
     <>

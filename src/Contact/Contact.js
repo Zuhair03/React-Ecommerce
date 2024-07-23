@@ -3,6 +3,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 import Menubar from '../Components/Menubar/Menubar';
 import CarouselComponent from '../Components/Carousel/Carousel';
 import Footer from '../Components/Footer/Footer';
+import '../Components/Global.css';
 
 function Contact() {
     const images = [
@@ -11,7 +12,7 @@ function Contact() {
     return (
         <>
             <div className='container'>
-                    <Menubar />
+                <Menubar />
                 <div className="mt-4 position-relative">
                     <div className="mt-4 position-relative">
                         <CarouselComponent data={images} />
@@ -26,19 +27,26 @@ function Contact() {
                     </div>
                     <div className='col-8 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
                         <h4>
-                            Address:- <br />
+                            Address:-
                             Sagrampura, Surat, Gujarat, India
                         </h4>
                     </div>
                 </div>
-                <div className="row">
-                    <div className='mt-3 map col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7446.455378309543!2d72.89490964530309!3d21.063566434363366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be059fb0c3e19fd%3A0x2471f79a87a44af1!2sLajpur%2C%20Gujarat%20394235!5e0!3m2!1sen!2sin!4v1721199307627!5m2!1sen!2sin" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title='Lajpur Location'></iframe>
+                <div className="row mt-3 mb-3">
+                    <div className=' map col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7446.455378309543!2d72.89490964530309!3d21.063566434363366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be059fb0c3e19fd%3A0x2471f79a87a44af1!2sLajpur%2C%20Gujarat%20394235!5e0!3m2!1sen!2sin!4v1721199307627!5m2!1sen!2sin"
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title='Lajpur Location'
+                            className='iframe-map'
+                        ></iframe>
                     </div>
-                    <div className='mt-3 col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
-                        <Form>
-                            <Row className="mb-3">
-                                <Form.Group as={Col} controlId="formGridEmail">
+                    <div className='col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
+                        <Form id='form'>
+                            <Row>
+                                <Form.Group as={Col} controlId="formGridName">
                                     <Form.Label>Name</Form.Label>
                                     <Form.Control type="text" placeholder="Enter Name" />
                                 </Form.Group>
@@ -49,13 +57,12 @@ function Contact() {
                                 </Form.Group>
                             </Row>
                             <Row>
-
                                 <Form.Group as={Col} controlId="formGridPassword">
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" placeholder="Password" />
                                 </Form.Group>
 
-                                <Form.Group as={Col} controlId="formGridPassword">
+                                <Form.Group as={Col} controlId="formGridContact">
                                     <Form.Label>Contact</Form.Label>
                                     <Form.Control type="number" placeholder="Contact" />
                                 </Form.Group>

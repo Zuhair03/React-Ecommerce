@@ -1,0 +1,11 @@
+.product-card {
+    width: 16rem;
+    height: 30rem;
+}
+
+.product-card .card-body {
+    height: 12rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

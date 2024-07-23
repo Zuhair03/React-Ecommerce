@@ -1,26 +1,26 @@
 import React from 'react';
-import { Card as BootstrapCard, Button } from 'react-bootstrap';
-import "../Card/Card.css"
+import { Card, Button } from 'react-bootstrap';
+import "../Card/Card.css";
 
-function Card({ productData }) {
+function ProductCard({ productData }) {
     return (
-        <div className="m-2">
-            <BootstrapCard>
-                <BootstrapCard.Img variant="top" src={productData?.imageUrl} />
-                <BootstrapCard.Body className="text-center">
-                    <BootstrapCard.Title>{productData?.name}</BootstrapCard.Title>
-                    <BootstrapCard.Text>
-                        <strong>Category:</strong> {productData?.category} <br/>
-                        <strong>Price:</strong> ${productData?.price} <br/>
+        <div>
+            <Card className="product-card">
+                <Card.Img variant="top" src={productData?.imageUrl} />
+                <Card.Body className="text-center">
+                    <Card.Title>{productData?.name}</Card.Title>
+                    <Card.Text>
+                        <strong>Category:</strong> {productData?.category} <br />
+                        <strong>Price:</strong> ${productData?.price} <br />
                         <strong>Rating:</strong> {productData?.rating} ({productData?.reviews} reviews)
-                    </BootstrapCard.Text>
+                    </Card.Text>
                     <Button variant="primary" disabled={!productData?.inStock}>
                         {productData?.inStock ? 'Buy Now' : 'Out of Stock'}
                     </Button>
-                </BootstrapCard.Body>
-            </BootstrapCard>
+                </Card.Body>
+            </Card>
         </div>
     );
 }
 
-export default Card;
+export default ProductCard;
