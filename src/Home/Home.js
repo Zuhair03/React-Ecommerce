@@ -1,12 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Menubar from '../Components/Menubar/Menubar'
 import Footer from '../Components/Footer/Footer'
 import CarouselComponent from '../Components/Carousel/Carousel';
+import { fetchData } from '../api';
 
 function Home() {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState('pleas try again');
+
     const images = [
         "https://via.placeholder.com/600x400?text=Image+1",
     ];
+
+    useEffect(() => {
+        loadData();
+    }, []);
+    const loadData = async () => {
+        try {
+            const result = await fetchData('https://catfact.ninja/fact');
+            console.log(result)
+            setData(result);
+        } catch (error) {
+            setError(error.message);
+            console.log(error)
+        }
+    };
+
+
+
+  
     return (
         <div className='container'>
             <Menubar />
@@ -37,6 +59,16 @@ function Home() {
                         </ul>
                     </div>
                 </div>
+
+            </div>
+            <div className='mt-3'>
+                {data &&
+                    <div>{data?.fact}</div>
+                }
+                {!data &&
+                    <div>{error}</div>
+                }
+                
 
             </div>
             <Footer />
