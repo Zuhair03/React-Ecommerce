@@ -1,20 +1,15 @@
-import React from 'react'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import Card from '../Components/Card/Card';
+import React from 'react';
+
 import Footer from '../Components/Footer/Footer';
 import Menubar from '../Components/Menubar/Menubar';
-import CarouselComponent from '../Components/Carousel/Carousel';
-import "../Components/Global.css"
+import "../Components/Global.css";
+import { Card } from 'react-bootstrap';
+import ProductCard from '../Components/Card/Card';
 
 function Shop() {
 
-    const images = [
-        "https://via.placeholder.com/600x400?text=Image+1",
-    ];
 
-    const bestSellerProducts = [
+    const AllProducts = [
         {
             id: 1,
             name: "Wireless Earbuds",
@@ -114,13 +109,9 @@ function Shop() {
             reviews: 3300,
             inStock: true,
             imageUrl: "https://via.placeholder.com/150?text=Air+Fryer"
-        }
-    ];
-
-
-    const topRatedProducts = [
+        },
         {
-            id: 1,
+            id: 11,
             name: "4K OLED TV",
             category: "Electronics",
             price: 1499.99,
@@ -130,7 +121,7 @@ function Shop() {
             imageUrl: "https://via.placeholder.com/150?text=4K+OLED+TV"
         },
         {
-            id: 2,
+            id: 12,
             name: "Professional Camera",
             category: "Electronics",
             price: 1999.99,
@@ -140,7 +131,7 @@ function Shop() {
             imageUrl: "https://via.placeholder.com/150?text=Professional+Camera"
         },
         {
-            id: 3,
+            id: 13,
             name: "Memory Foam Mattress",
             category: "Home & Furniture",
             price: 899.99,
@@ -150,7 +141,7 @@ function Shop() {
             imageUrl: "https://via.placeholder.com/150?text=Memory+Foam+Mattress"
         },
         {
-            id: 4,
+            id: 14,
             name: "Electric Scooter",
             category: "Sports & Outdoors",
             price: 499.99,
@@ -160,7 +151,7 @@ function Shop() {
             imageUrl: "https://via.placeholder.com/150?text=Electric+Scooter"
         },
         {
-            id: 5,
+            id: 15,
             name: "Smart Refrigerator",
             category: "Appliances",
             price: 2499.99,
@@ -170,7 +161,7 @@ function Shop() {
             imageUrl: "https://via.placeholder.com/150?text=Smart+Refrigerator"
         },
         {
-            id: 6,
+            id: 16,
             name: "Wireless Gaming Mouse",
             category: "Computers",
             price: 79.99,
@@ -180,7 +171,7 @@ function Shop() {
             imageUrl: "https://via.placeholder.com/150?text=Wireless+Gaming+Mouse"
         },
         {
-            id: 7,
+            id: 17,
             name: "Noise-Cancelling Earbuds",
             category: "Electronics",
             price: 199.99,
@@ -190,7 +181,7 @@ function Shop() {
             imageUrl: "https://via.placeholder.com/150?text=Noise-Cancelling+Earbuds"
         },
         {
-            id: 8,
+            id: 18,
             name: "Robot Vacuum Cleaner",
             category: "Home & Kitchen",
             price: 349.99,
@@ -200,7 +191,7 @@ function Shop() {
             imageUrl: "https://via.placeholder.com/150?text=Robot+Vacuum+Cleaner"
         },
         {
-            id: 9,
+            id: 19,
             name: "Portable Power Bank",
             category: "Electronics",
             price: 39.99,
@@ -210,7 +201,7 @@ function Shop() {
             imageUrl: "https://via.placeholder.com/150?text=Portable+Power+Bank"
         },
         {
-            id: 10,
+            id: 20,
             name: "Fitness Tracker Watch",
             category: "Fitness",
             price: 129.99,
@@ -221,75 +212,28 @@ function Shop() {
         }
     ];
 
-    function Arrow(props) {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={className}
-                style={{ ...style, display: "block" }}
-                onClick={onClick}
-            />
-        );
-    }
 
-    var settings = {
-        infinite: true,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        nextArrow: <Arrow />,
-        prevArrow: <Arrow />,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-
-                }
-            }
-        ]
-    };
 
     return (<>
         <div className='container'>
             <Menubar />
-            <div className="mt-4 position-relative">
-                <CarouselComponent data={images} />
-            </div>
-            <div className="mt-4 position-relative">
-                <Slider {...settings}>
-                    {bestSellerProducts.map((product, index) => (
-                        <Card productData={product} key={index} />
-                    ))}
-                </Slider>
-            </div>
-            <div className="mt-4 position-relative">
-                <Slider {...settings}>
-                    {topRatedProducts.map((product, index) => (
-                        <Card productData={product} key={index} />
-                    ))}
-                </Slider>
+            <div className='row'>
+                <div className='col-4 '>
+                    <ul>
+                        <li> One</li>
+                        <li> One</li>
+                        <li> One</li>
+                        <li> One</li>
+                        <li> One</li>
+                    </ul>
+                </div>
+                <div className=' product col-8'>
+                    
+                        {AllProducts.map((product, index) => (
+                            <ProductCard productData={product} key={index} />
+                        ))}
+                   
+                </div>
             </div>
             <Footer />
         </div>
