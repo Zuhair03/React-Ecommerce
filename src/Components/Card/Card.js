@@ -1,22 +1,22 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import "../Card/Card.css";
 
 function ProductCard({ productData }) {
     return (
         <div>
             <Card className="product-card">
-                <Card.Img variant="top" src={productData?.imageUrl} />
-                <Card.Body className="text-center">
-                    <Card.Title>{productData?.name}</Card.Title>
-                    <Card.Text>
-                        <strong>Category:</strong> {productData?.category} <br />
-                        <strong>Price:</strong> ${productData?.price} <br />
-                        <strong>Rating:</strong> {productData?.rating} ({productData?.reviews} reviews)
-                    </Card.Text>
-                    <Button variant="primary" disabled={!productData?.inStock}>
-                        {productData?.inStock ? 'Buy Now' : 'Out of Stock'}
-                    </Button>
+                <Card.Img className='hover-zoom' variant="top" src={productData?.imageUrl} />
+                <Card.Body className="text-left">
+                    <div className="text-content">
+                        <Card.Title>{productData?.name}</Card.Title>
+                        <Card.Text>
+                            <h4>{productData?.category}</h4>
+                        </Card.Text>
+                        <Card.Text>
+                            <h5>${productData?.price}</h5>
+                        </Card.Text>
+                    </div>
                 </Card.Body>
             </Card>
         </div>

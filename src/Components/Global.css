@@ -14,18 +14,18 @@ body{
     border-radius: 10px;
 }
 
-.form {
+#form {
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form .form-control {
+#form .form-control {
     border-radius: 5px;
 }
 
-.form .btn {
+#form .btn {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -35,7 +35,6 @@ body{
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-  
   }
   
   .product .ProductCard {
