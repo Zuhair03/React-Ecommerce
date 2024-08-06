@@ -2,7 +2,7 @@
     width: 16rem;
     height: 27rem;
     overflow: hidden;
-    position: relative;
+    text-align: -webkit-center;
     display: flex;
     flex-direction: column;
 }
@@ -28,7 +28,7 @@
 
 .card {
     overflow: hidden;
-    position: relative; 
+    position: relative;
 }
 
 .card img {
@@ -37,5 +37,5 @@
 }
 
 .card img:hover {
-    transform: scale(1.1);
+    transform: scalex(1.1); /* Adjust the scaling factor as needed */
 }

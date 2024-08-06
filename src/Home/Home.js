@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import Menubar from '../Components/Menubar/Menubar'
-import Footer from '../Components/Footer/Footer'
+import React, { useEffect, useState } from 'react';
+import Menubar from '../Components/Menubar/Menubar';
+import Footer from '../Components/Footer/Footer';
 import CarouselComponent from '../Components/Carousel/Carousel';
+import "../Components/Global.css";
 import { fetchData } from '../api';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 import Slider from "react-slick";
 import Card from '../Components/Card/Card';
+import { bestSellerProducts } from '../Shop/Products/Bestseller';
+import { topRatedProducts } from '../Shop/Products/Toprated';
 
 
 function Home() {
     const [data, setData] = useState(null);
-    const [error, setError] = useState('pleas try again');
+    const [error, setError] = useState('Please try again');
 
     const images = [
         "https://via.placeholder.com/600x400?text=Image+1",
@@ -20,236 +22,30 @@ function Home() {
     useEffect(() => {
         loadData();
     }, []);
+
     const loadData = async () => {
         try {
             const result = await fetchData('https://catfact.ninja/fact');
-            console.log(result)
+            console.log(result);
             setData(result);
         } catch (error) {
             setError(error.message);
-            console.log(error)
+            console.log(error);
         }
     };
-
-    const bestSellerProducts = [
-        {
-            id: 1,
-            name: "Wireless Earbuds",
-            category: "Electronics",
-            price: 49.99,
-            rating: 4.5,
-            reviews: 1500,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Wireless+Earbuds"
-        },
-        {
-            id: 2,
-            name: "Smartwatch",
-            category: "Electronics",
-            price: 199.99,
-            rating: 4.7,
-            reviews: 3500,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Smartwatch"
-        },
-        {
-            id: 3,
-            name: "Instant Pot",
-            category: "Home & Kitchen",
-            price: 89.99,
-            rating: 4.8,
-            reviews: 5000,
-            inStock: false,
-            imageUrl: "https://via.placeholder.com/150?text=Instant+Pot"
-        },
-        {
-            id: 4,
-            name: "Running Shoes",
-            category: "Sports & Outdoors",
-            price: 120.00,
-            rating: 4.6,
-            reviews: 2200,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Running+Shoes"
-        },
-        {
-            id: 5,
-            name: "Gaming Laptop",
-            category: "Computers",
-            price: 1299.99,
-            rating: 4.9,
-            reviews: 1200,
-            inStock: false,
-            imageUrl: "https://via.placeholder.com/150?text=Gaming+Laptop"
-        },
-        {
-            id: 6,
-            name: "Blender",
-            category: "Home & Kitchen",
-            price: 59.99,
-            rating: 4.3,
-            reviews: 800,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Blender"
-        },
-        {
-            id: 7,
-            name: "Electric Toothbrush",
-            category: "Personal Care",
-            price: 39.99,
-            rating: 4.4,
-            reviews: 1400,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Electric+Toothbrush"
-        },
-        {
-            id: 8,
-            name: "Yoga Mat",
-            category: "Sports & Outdoors",
-            price: 25.99,
-            rating: 4.2,
-            reviews: 700,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Yoga+Mat"
-        },
-        {
-            id: 9,
-            name: "Noise-Cancelling Headphones",
-            category: "Electronics",
-            price: 299.99,
-            rating: 4.7,
-            reviews: 2400,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Noise+Cancelling+Headphones"
-        },
-        {
-            id: 10,
-            name: "Air Fryer",
-            category: "Home & Kitchen",
-            price: 99.99,
-            rating: 4.5,
-            reviews: 3300,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Air+Fryer"
-        }
-    ];
-
-
-    const topRatedProducts = [
-        {
-            id: 1,
-            name: "4K OLED TV",
-            category: "Electronics",
-            price: 1499.99,
-            rating: 4.9,
-            reviews: 1800,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=4K+OLED+TV"
-        },
-        {
-            id: 2,
-            name: "Professional Camera",
-            category: "Electronics",
-            price: 1999.99,
-            rating: 4.8,
-            reviews: 2500,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Professional+Camera"
-        },
-        {
-            id: 3,
-            name: "Memory Foam Mattress",
-            category: "Home & Furniture",
-            price: 899.99,
-            rating: 4.7,
-            reviews: 3000,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Memory+Foam+Mattress"
-        },
-        {
-            id: 4,
-            name: "Electric Scooter",
-            category: "Sports & Outdoors",
-            price: 499.99,
-            rating: 4.7,
-            reviews: 2000,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Electric+Scooter"
-        },
-        {
-            id: 5,
-            name: "Smart Refrigerator",
-            category: "Appliances",
-            price: 2499.99,
-            rating: 4.6,
-            reviews: 1500,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Smart+Refrigerator"
-        },
-        {
-            id: 6,
-            name: "Wireless Gaming Mouse",
-            category: "Computers",
-            price: 79.99,
-            rating: 4.6,
-            reviews: 1800,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Wireless+Gaming+Mouse"
-        },
-        {
-            id: 7,
-            name: "Noise-Cancelling Earbuds",
-            category: "Electronics",
-            price: 199.99,
-            rating: 4.5,
-            reviews: 2200,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Noise-Cancelling+Earbuds"
-        },
-        {
-            id: 8,
-            name: "Robot Vacuum Cleaner",
-            category: "Home & Kitchen",
-            price: 349.99,
-            rating: 4.5,
-            reviews: 2500,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Robot+Vacuum+Cleaner"
-        },
-        {
-            id: 9,
-            name: "Portable Power Bank",
-            category: "Electronics",
-            price: 39.99,
-            rating: 4.4,
-            reviews: 3000,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Portable+Power+Bank"
-        },
-        {
-            id: 10,
-            name: "Fitness Tracker Watch",
-            category: "Fitness",
-            price: 129.99,
-            rating: 4.4,
-            reviews: 2800,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Fitness+Tracker+Watch"
-        }
-    ];
 
     function Arrow(props) {
         const { className, style, onClick } = props;
         return (
             <div
                 className={className}
-                style={{ ...style, display: "block" }}
+                style={{ ...style, display: "block", zIndex: 2 }}
                 onClick={onClick}
             />
         );
     }
 
-    var settings = {
+    const settings = {
         infinite: true,
         speed: 500,
         slidesToShow: 5,
@@ -264,7 +60,15 @@ function Home() {
                     slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: true,
+                }
+            },
 
+            {
+                breakpoint: 914,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
                 }
             },
             {
@@ -273,7 +77,6 @@ function Home() {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                     infinite: true,
-
                 }
             },
             {
@@ -282,76 +85,69 @@ function Home() {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
-
+                    arrows: false
                 }
             }
         ]
     };
 
-
-
     return (
         <div className='container'>
             <Menubar />
-            <div className="mt-4 position-relative">
+            <div className="mt-4">
                 <CarouselComponent data={images} />
             </div>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-6 col-md-6 col-lg-4 col-xl-4'>
+                    <div className='col-12 col-md-4'>
                         <ul>
-                            <li> One</li>
-                            <li> Two</li>
-                            <li> Three</li>
+                            <li>One</li>
+                            <li>Two</li>
+                            <li>Three</li>
                         </ul>
                     </div>
-                    <div className='col-6 col-md-6 col-lg-4 col-xl-4'>
+                    <div className='col-12 col-md-4'>
                         <ul>
-                            <li> One</li>
-                            <li> Two</li>
-                            <li> Three</li>
+                            <li>One</li>
+                            <li>Two</li>
+                            <li>Three</li>
                         </ul>
                     </div>
-                    <div className='col-6 col-md-6 col-lg-4 col-xl-4'>
+                    <div className='col-12 col-md-4'>
                         <ul>
-                            <li> One</li>
-                            <li> Two</li>
-                            <li> Three</li>
+                            <li>One</li>
+                            <li>Two</li>
+                            <li>Three</li>
                         </ul>
                     </div>
                 </div>
-
             </div>
-
-            <div className="mt-4 position-relative">
-                <div> <h4>Best Seller Products</h4></div>
+            <div className="mt-4 center">
+                <div><h4>Best Seller Products</h4></div>
                 <Slider {...settings}>
                     {bestSellerProducts.map((product, index) => (
-                        <Card productData={product} key={index} />
+                        <div key={index} className="p-2">
+                            <Card productData={product} />
+                        </div>
                     ))}
                 </Slider>
             </div>
-            <div className="mt-4 position-relative">
-            <div> <h4>Top Rated Products</h4></div>
+            <div className="mt-4 center">
+                <div><h4>Top Rated Products</h4></div>
                 <Slider {...settings}>
                     {topRatedProducts.map((product, index) => (
-                        <Card productData={product} key={index} />
+                        <div key={index} className="p-2">
+                            <Card productData={product} />
+                        </div>
                     ))}
                 </Slider>
             </div>
             <div className='mt-3'>
-                {data &&
-                    <div>{data?.fact}</div>
-                }
-                {!data &&
-                    <div>{error}</div>
-                }
-
-
+                {data ? <div>{data.fact}</div> : <div>{error}</div>}
             </div>
             <Footer />
         </div>
-    )
+    );
 }
 
-export default Home
+export default Home;

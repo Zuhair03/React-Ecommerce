@@ -1,7 +1,7 @@
-body{
+/* Existing CSS */
+body {
     background-color: #e7e7e7 !important;
 }
-
 
 .slick-prev:before, .slick-next:before {
     color: black !important;
@@ -31,15 +31,42 @@ body{
     border-radius: 5px;
 }
 
+/* Updated Product Card Styles */
 .product {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-  }
-  
-  .product .ProductCard {
-    flex: 1 1 calc(33.333% - 16px); 
-    box-sizing: border-box; 
-    margin: 8px;
-  }
-  
+}
+
+.product .ProductCard {
+    flex: 1 1 calc(25% - 16px); /* Adjust for 4 cards per row */
+    box-sizing: border-box;
+    margin-bottom: 16px; /* Space between cards */
+    transition: transform 0.3s ; /* Smooth scaling effect */
+    overflow: hidden; /* Ensure hover effect stays within bounds */
+}
+
+.product-card {
+    width: 14rem; /* Adjusted width */
+    height: 24rem; /* Adjusted height */
+    overflow: hidden; /* Ensure content does not overflow */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.product-card:hover {
+    transform: scalex(1.1); /* Uniform scaling effect on hover */
+}
+
+.product-card .card-body {
+    padding: 1rem; /* Adjust padding */
+}
+
+.center {
+    text-align: -webkit-center;
+}
