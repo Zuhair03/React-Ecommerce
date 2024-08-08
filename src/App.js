@@ -7,6 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from './Home/Home';
 import Contact from './Contact/Contact';
 import Shop from './Shop/Shop';
+import Productdetails from './Productdetails/Productdetails';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='Shop' element={<Shop />} />
           <Route path='Contact' element={<Contact />} />
+          <Route path='Productdetails' element={<Productdetails />} />
         </Routes>
       </BrowserRouter>
     </>

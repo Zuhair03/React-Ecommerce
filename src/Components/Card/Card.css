@@ -1,41 +1,50 @@
+body {
+    background-color: #e7e7e7 !important;
+    border-radius: 5px;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: black !important;
+}
+
+/* Product Container Styles */
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.product .ProductCard {
+    flex: 1 1 calc(25% - 16px); /* Adjusted for 4 cards per row */
+    box-sizing: border-box;
+    margin-bottom: 16px; /* Space between cards */
+}
+
+/* Product Card Styles */
 .product-card {
     width: 16rem;
     height: 27rem;
     overflow: hidden;
+    position: relative;
     text-align: -webkit-center;
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
 }
 
-.product-card .card-body {
-    height: 12rem; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-    padding: 1rem; 
-    box-sizing: border-box;
-}
-
-.card-body .text-content {
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    display: -webkit-box;
-    -webkit-line-clamp: 3; 
-    -webkit-box-orient: vertical;
-    height: 100%;
-}
-
-.card {
-    overflow: hidden;
-    position: relative;
-}
-
-.card img {
-    width: 100%; 
+/* Image Hover Effect */
+.product-card img {
+    width: 100%;
+    height: auto;
     transition: transform 0.3s ease;
+    display: block;
 }
 
-.card img:hover {
-    transform: scalex(1.1); /* Adjust the scaling factor as needed */
+.product-card img:hover {
+    transform: scalex(1.1); /* Scale effect only on the image */
+}
+
+/* Additional Styles */
+.center {
+    text-align: -webkit-center;
 }

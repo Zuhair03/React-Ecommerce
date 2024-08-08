@@ -4,7 +4,6 @@ import Footer from '../Components/Footer/Footer';
 import CarouselComponent from '../Components/Carousel/Carousel';
 import "../Components/Global.css";
 import { fetchData } from '../api';
-
 import Slider from "react-slick";
 import Card from '../Components/Card/Card';
 import { bestSellerProducts } from '../Shop/Products/Bestseller';
@@ -63,8 +62,8 @@ function Home() {
                 }
             },
 
-            {
-                breakpoint: 914,
+             {
+                breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1,
