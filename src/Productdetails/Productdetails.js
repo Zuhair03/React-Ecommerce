@@ -1,62 +1,57 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
 import Menubar from '../Components/Menubar/Menubar';
-import ProductCard from '../Components/Card/Card';
-import { AllProducts } from '../Shop/Products/Allproducts';
+import { Tab } from 'bootstrap/dist/js/bootstrap.bundle.min';
+import { Tabs } from 'react-bootstrap';
 
-function Productdetails() {
-    const location = useLocation();
-    const product = location.state?.productData; // Get the passed product data
+const Productdetails = ({ products }) => {
+    let { id } = useParams();
+    const product = products.find(item => item.id === parseInt(id, 10)); // Ensure `id` is compared correctly
 
     if (!product) {
-        return <p>Product not found.</p>;
+        return <div>Product not found</div>;
     }
-
-    // Filter out the current product from the list of all products
-    const otherProducts = AllProducts.filter(p => p.id !== product.id);
-
+    console.log("product", product);
     return (
         <>
             <Menubar />
-            <div className="container mt-5">
-                <div className="row">
-                    {/* Product Details Section */}
-                    <div className="col-md-8 mt-4">
-                        <h2>{product.name}</h2>
-                        <img 
-                            src={product.imageUrl} 
-                            alt={product.name} 
-                            className="img-fluid mb-3" 
-                            style={{ maxWidth: '100%', height: 'auto' }} 
-                        />
-                        <p>{product.description || 'No description available'}</p>
-                    </div>
-
-                    {/* Actions Section */}
-                    <div className="col-md-4 mt-4">
-                        <div className="d-flex flex-column">
-                            <button className="btn btn-primary mb-3">Add to Cart</button>
-                            <button className="btn btn-success">Buy Now</button>
+            <div className='container mt-5'>
+                <div className='row mt-5 mb-5'>
+                    <div className='col-md-4'>
+                        <div style={{ textAlign: "center" }}>
+                            <img src={product?.imageUrl} alt={product?.name} />
                         </div>
                     </div>
+                    <div className='col-md-8'>
+                        <h2>{product?.name}</h2>
+                        <p>{product.description}</p>
+                        <h3>${product.price}</h3>
+                        <button className='btn btn-primary m-3'>Buy Now</button>
+                        <button className='btn btn-secondary'>Add to Cart</button>
+                    </div>
                 </div>
-
-                {/* Other Products Section */}
-                <div className="row mt-5">
-                    <h3>Other Products</h3>
-                    <div className="d-flex flex-wrap justify-content-between">
-                        {otherProducts.map((product, index) => (
-                            <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={product.id}>
-                                <ProductCard productData={product} />
-                            </div>
-                        ))}
+            </div>
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-4'  style={{ border: '2px solid black' }}>
+                        <Tabs>
+                            <Tab eventKey="Description" title="Description">
+                                Tab content for Home
+                            </Tab>
+                            <Tab eventKey="Review" title="Review">
+                                Tab content for Profile
+                            </Tab>
+                            <Tab eventKey="Rating" title="Rating">
+                                Tab content for Profile
+                            </Tab>
+                        </Tabs>
                     </div>
                 </div>
             </div>
             <Footer />
         </>
     );
-}
+};
 
 export default Productdetails;

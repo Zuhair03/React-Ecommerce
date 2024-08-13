@@ -13,7 +13,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Menubar() {
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary fixed-top">
+    {/* fixed-top */}
+      <Navbar expand="lg" className="bg-body-tertiary ">
         <Container fluid>
           <Navbar.Brand href="/">Ecommerce</Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar" className="d-lg-none" />

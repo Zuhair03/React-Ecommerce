@@ -8,6 +8,7 @@ import Home from './Home/Home';
 import Contact from './Contact/Contact';
 import Shop from './Shop/Shop';
 import Productdetails from './Productdetails/Productdetails';
+import { AllProducts } from './Shop/Products/Allproducts';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='Shop' element={<Shop />} />
           <Route path='Contact' element={<Contact />} />
-          <Route path='Productdetails' element={<Productdetails />} />
+          <Route path="/product/:id" element={<Productdetails products={AllProducts} />} />
         </Routes>
       </BrowserRouter>
     </>

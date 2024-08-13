@@ -35,11 +35,10 @@ function Shop() {
             setCurrentPage(currentPage - 1);
         }
     };
-
     const gotoProductDetails = (product) => {
-        navigate('/productdetails', { state: { productData: product } });
+        navigate(`/product/${product.id}`);
     };
-
+    
     return (
         <>
             <div className='container'>
