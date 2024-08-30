@@ -1,11 +1,27 @@
 body {
     background-color: #e7e7e7 !important;
 }
-
-
-.slick-prev:before, .slick-next:before {
-    color: black !important;
+.slick-prev, .slick-next {
+    top: 50%;
+    transform: translateY(-50%);
 }
+
+@media (max-width: 480px) {
+    .slick-prev, .slick-next {
+        top: 40%; /* Adjust top position for mobile */
+        width: 25px; /* Smaller size for arrows */
+        height: 25px; /* Smaller size for arrows */
+    }
+
+    .slick-prev {
+        left: -5px; /* Adjust left position to avoid going off-screen */
+    }
+
+    .slick-next {
+        right: -5px; /* Adjust right position to avoid going off-screen */
+    }
+}
+
  body{
     border-radius: 5px;
 }

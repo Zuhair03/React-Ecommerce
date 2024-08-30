@@ -9,6 +9,7 @@ import Contact from './Contact/Contact';
 import Shop from './Shop/Shop';
 import Productdetails from './Productdetails/Productdetails';
 import { AllProducts } from './Shop/Products/Allproducts';
+import MegaShop from './Shop/megaShop';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='Shop' element={<Shop />} />
           <Route path='Contact' element={<Contact />} />
+          <Route path='megashop' element={<MegaShop />} />
           <Route path="/product/:id" element={<Productdetails products={AllProducts} />} />
         </Routes>
       </BrowserRouter>

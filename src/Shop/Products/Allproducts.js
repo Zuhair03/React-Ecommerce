@@ -1,202 +1,222 @@
-  export const AllProducts = [
-        {
-            id: 1,
-            name: "Wireless Earbuds",
-            category: "Electronics",
-            price: 49.99,
-            rating: 4.5,
-            reviews: 1500,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Wireless+Earbuds"
-        },
-        {
-            id: 2,
-            name: "Smartwatch",
-            category: "Electronics",
-            price: 199.99,
-            rating: 4.7,
-            reviews: 3500,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Smartwatch"
-        },
-        {
-            id: 3,
-            name: "Instant Pot",
-            category: "Home & Kitchen",
-            price: 89.99,
-            rating: 4.8,
-            reviews: 5000,
-            inStock: false,
-            imageUrl: "https://via.placeholder.com/150?text=Instant+Pot"
-        },
-        {
-            id: 4,
-            name: "Running Shoes",
-            category: "Sports & Outdoors",
-            price: 120.00,
-            rating: 4.6,
-            reviews: 2200,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Running+Shoes"
-        },
-        {
-            id: 5,
-            name: "Gaming Laptop",
-            category: "Computers",
-            price: 1299.99,
-            rating: 4.9,
-            reviews: 1200,
-            inStock: false,
-            imageUrl: "https://via.placeholder.com/150?text=Gaming+Laptop"
-        },
-        {
-            id: 6,
-            name: "Blender",
-            category: "Home & Kitchen",
-            price: 59.99,
-            rating: 4.3,
-            reviews: 800,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Blender"
-        },
-        {
-            id: 7,
-            name: "Electric Toothbrush",
-            category: "Personal Care",
-            price: 39.99,
-            rating: 4.4,
-            reviews: 1400,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Electric+Toothbrush"
-        },
-        {
-            id: 8,
-            name: "Yoga Mat",
-            category: "Sports & Outdoors",
-            price: 25.99,
-            rating: 4.2,
-            reviews: 700,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Yoga+Mat"
-        },
-        {
-            id: 9,
-            name: "Noise-Cancelling Headphones",
-            category: "Electronics",
-            price: 299.99,
-            rating: 4.7,
-            reviews: 2400,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Noise+Cancelling+Headphones"
-        },
-        {
-            id: 10,
-            name: "Air Fryer",
-            category: "Home & Kitchen",
-            price: 99.99,
-            rating: 4.5,
-            reviews: 3300,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Air+Fryer"
-        },
-        {
-            id: 11,
-            name: "4K OLED TV",
-            category: "Electronics",
-            price: 1499.99,
-            rating: 4.9,
-            reviews: 1800,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=4K+OLED+TV"
-        },
-        {
-            id: 12,
-            name: "Professional Camera",
-            category: "Electronics",
-            price: 1999.99,
-            rating: 4.8,
-            reviews: 2500,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Professional+Camera"
-        },
-        {
-            id: 13,
-            name: "Memory Foam Mattress",
-            category: "Home & Furniture",
-            price: 899.99,
-            rating: 4.7,
-            reviews: 3000,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Memory+Foam+Mattress"
-        },
-        {
-            id: 14,
-            name: "Electric Scooter",
-            category: "Sports & Outdoors",
-            price: 499.99,
-            rating: 4.7,
-            reviews: 2000,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Electric+Scooter"
-        },
-        {
-            id: 15,
-            name: "Smart Refrigerator",
-            category: "Appliances",
-            price: 2499.99,
-            rating: 4.6,
-            reviews: 1500,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Smart+Refrigerator"
-        },
-        {
-            id: 16,
-            name: "Wireless Gaming Mouse",
-            category: "Computers",
-            price: 79.99,
-            rating: 4.6,
-            reviews: 1800,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Wireless+Gaming+Mouse"
-        },
-        {
-            id: 17,
-            name: "Noise-Cancelling Earbuds",
-            category: "Electronics",
-            price: 199.99,
-            rating: 4.5,
-            reviews: 2200,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Noise-Cancelling+Earbuds"
-        },
-        {
-            id: 18,
-            name: "Robot Vacuum Cleaner",
-            category: "Home & Kitchen",
-            price: 349.99,
-            rating: 4.5,
-            reviews: 2500,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Robot+Vacuum+Cleaner"
-        },
-        {
-            id: 19,
-            name: "Portable Power Bank",
-            category: "Electronics",
-            price: 39.99,
-            rating: 4.4,
-            reviews: 3000,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Portable+Power+Bank"
-        },
-        {
-            id: 20,
-            name: "Fitness Tracker Watch",
-            category: "Fitness",
-            price: 129.99,
-            rating: 4.4,
-            reviews: 2800,
-            inStock: true,
-            imageUrl: "https://via.placeholder.com/150?text=Fitness+Tracker+Watch"
-        }
-    ];
+export const AllProducts = [
+    {
+        id: 1,
+        name: "Wireless Earbuds",
+        category: "Electronics",
+        price: 49.99,
+        rating: 4.5,
+        reviews: 1500,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Wireless+Earbuds",
+        description: "Compact and lightweight wireless earbuds with superior sound quality and long battery life."
+    },
+    {
+        id: 2,
+        name: "Smartwatch",
+        category: "Electronics",
+        price: 199.99,
+        rating: 4.7,
+        reviews: 3500,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Smartwatch",
+        description: "A sleek and versatile smartwatch that tracks your fitness, notifications, and more."
+    },
+    {
+        id: 3,
+        name: "Instant Pot",
+        category: "Home & Kitchen",
+        price: 89.99,
+        rating: 4.8,
+        reviews: 5000,
+        inStock: false,
+        imageUrl: "https://via.placeholder.com/150?text=Instant+Pot",
+        description: "A multi-functional pressure cooker that makes cooking fast and easy."
+    },
+    {
+        id: 4,
+        name: "Running Shoes",
+        category: "Sports & Outdoors",
+        price: 120.00,
+        rating: 4.6,
+        reviews: 2200,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Running+Shoes",
+        description: "High-performance running shoes designed for comfort and durability."
+    },
+    {
+        id: 5,
+        name: "Gaming Laptop",
+        category: "Computers",
+        price: 1299.99,
+        rating: 4.9,
+        reviews: 1200,
+        inStock: false,
+        imageUrl: "https://via.placeholder.com/150?text=Gaming+Laptop",
+        description: "A powerful gaming laptop with high-end graphics and fast processing speed."
+    },
+    {
+        id: 6,
+        name: "Blender",
+        category: "Home & Kitchen",
+        price: 59.99,
+        rating: 4.3,
+        reviews: 800,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Blender",
+        description: "A versatile blender perfect for making smoothies, soups, and more."
+    },
+    {
+        id: 7,
+        name: "Electric Toothbrush",
+        category: "Personal Care",
+        price: 39.99,
+        rating: 4.4,
+        reviews: 1400,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Electric+Toothbrush",
+        description: "An electric toothbrush that ensures a thorough and gentle clean for your teeth."
+    },
+    {
+        id: 8,
+        name: "Yoga Mat",
+        category: "Sports & Outdoors",
+        price: 25.99,
+        rating: 4.2,
+        reviews: 700,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Yoga+Mat",
+        description: "A non-slip yoga mat that provides comfort and stability during your workout."
+    },
+    {
+        id: 9,
+        name: "Noise-Cancelling Headphones",
+        category: "Electronics",
+        price: 299.99,
+        rating: 4.7,
+        reviews: 2400,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Noise+Cancelling+Headphones",
+        description: "High-quality noise-cancelling headphones for an immersive listening experience."
+    },
+    {
+        id: 10,
+        name: "Air Fryer",
+        category: "Home & Kitchen",
+        price: 99.99,
+        rating: 4.5,
+        reviews: 3300,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Air+Fryer",
+        description: "A healthy cooking solution that lets you fry foods with little to no oil."
+    },
+    {
+        id: 11,
+        name: "4K OLED TV",
+        category: "Electronics",
+        price: 1499.99,
+        rating: 4.9,
+        reviews: 1800,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=4K+OLED+TV",
+        description: "A stunning 4K OLED TV with vibrant colors and sharp picture quality."
+    },
+    {
+        id: 12,
+        name: "Professional Camera",
+        category: "Electronics",
+        price: 1999.99,
+        rating: 4.8,
+        reviews: 2500,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Professional+Camera",
+        description: "A professional-grade camera with advanced features for high-quality photography."
+    },
+    {
+        id: 13,
+        name: "Memory Foam Mattress",
+        category: "Home & Furniture",
+        price: 899.99,
+        rating: 4.7,
+        reviews: 3000,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Memory+Foam+Mattress",
+        description: "A comfortable memory foam mattress that adapts to your body's shape."
+    },
+    {
+        id: 14,
+        name: "Electric Scooter",
+        category: "Sports & Outdoors",
+        price: 499.99,
+        rating: 4.7,
+        reviews: 2000,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Electric+Scooter",
+        description: "A fast and efficient electric scooter perfect for urban commuting."
+    },
+    {
+        id: 15,
+        name: "Smart Refrigerator",
+        category: "Appliances",
+        price: 2499.99,
+        rating: 4.6,
+        reviews: 1500,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Smart+Refrigerator",
+        description: "A high-tech smart refrigerator with advanced cooling and storage features."
+    },
+    {
+        id: 16,
+        name: "Wireless Gaming Mouse",
+        category: "Computers",
+        price: 79.99,
+        rating: 4.6,
+        reviews: 1800,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Wireless+Gaming+Mouse",
+        description: "A wireless gaming mouse with precision control and customizable buttons."
+    },
+    {
+        id: 17,
+        name: "Noise-Cancelling Earbuds",
+        category: "Electronics",
+        price: 199.99,
+        rating: 4.5,
+        reviews: 2200,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Noise-Cancelling+Earbuds",
+        description: "Compact noise-cancelling earbuds with excellent sound quality and comfort."
+    },
+    {
+        id: 18,
+        name: "Robot Vacuum Cleaner",
+        category: "Home & Kitchen",
+        price: 349.99,
+        rating: 4.5,
+        reviews: 2500,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Robot+Vacuum+Cleaner",
+        description: "A smart robot vacuum cleaner that navigates and cleans your home automatically."
+    },
+    {
+        id: 19,
+        name: "Portable Power Bank",
+        category: "Electronics",
+        price: 39.99,
+        rating: 4.4,
+        reviews: 3000,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Portable+Power+Bank",
+        description: "A portable power bank that charges your devices on the go."
+    },
+    {
+        id: 20,
+        name: "Fitness Tracker Watch",
+        category: "Fitness",
+        price: 129.99,
+        rating: 4.4,
+        reviews: 2800,
+        inStock: true,
+        imageUrl: "https://via.placeholder.com/150?text=Fitness+Tracker+Watch",
+        description: "A stylish fitness tracker watch that monitors your health and activity levels."
+    }
+];

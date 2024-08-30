@@ -23,7 +23,7 @@ function Menubar() {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/Shop">Shop</Nav.Link>
               <Nav.Link href="/Contact">Contact</Nav.Link>
-
+              <Nav.Link href="/Megashop">Mega Shop</Nav.Link>
               {/* Navbar Dropdown for Mega Menu */}
               <NavDropdown title="Mega Menu" id="nav-dropdown">
                 <div

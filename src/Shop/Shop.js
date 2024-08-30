@@ -4,7 +4,6 @@ import Footer from '../Components/Footer/Footer';
 import Menubar from '../Components/Menubar/Menubar';
 import ProductCard from '../Components/Card/Card';
 import { AllProducts } from './Products/Allproducts';
-import Sidebar from '../Components/Sidebar/Sidebar';
 import { useNavigate } from 'react-router-dom';  // Import useNavigate
 
 function Shop() {
@@ -44,10 +43,6 @@ function Shop() {
             <div className='container'>
                 <Menubar />
                 <div className='row'>
-                    <div className='col-12 col-md-4 col-lg-3'>
-                        <Sidebar />
-                    </div>
-
                     {/* Mobile view with pagination */}
                     <div className='d-md-none col-12 mt-5 mx-auto'>
                         <div className="d-flex flex-wrap justify-content-center" style={{ width: "100%", gap: "20px" }}>
