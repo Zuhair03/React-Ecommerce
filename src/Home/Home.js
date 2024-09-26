@@ -3,17 +3,15 @@ import Menubar from '../Components/Menubar/Menubar';
 import Footer from '../Components/Footer/Footer';
 import CarouselComponent from '../Components/Carousel/Carousel';
 import "../Components/Global.css";
-import { fetchData } from '../api';
+import {  fetchProduct, } from '../api';
 import Slider from "react-slick";
 import Card from '../Components/Card/Card';
-import { bestSellerProducts } from '../Shop/Products/Bestseller';
-import { topRatedProducts } from '../Shop/Products/Toprated';
 import { settings } from './settings';
 
 
 
 function Home() {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     const [error, setError] = useState('Please try again');
 
     const images = [
@@ -21,19 +19,24 @@ function Home() {
     ];
 
     useEffect(() => {
-        loadData();
+        fetchProductData();
     }, []);
 
-    const loadData = async () => {
-        try {
-            const result = await fetchData('https://catfact.ninja/fact');
+    
+    const fetchProductData = async () => {
+        try{
+            const result = await  fetchProduct("http://localhost:3000/api/products");
             console.log(result);
             setData(result);
-        } catch (error) {
-            setError(error.message);
-            console.log(error);
         }
+        catch (error) {
+            setError(error.message);
+            console.error('Error fetching Product Data:', error);
+        }
+    
     };
+
+    console.log("fill data", data)
     return (
         <div className='container'>
             <Menubar />
@@ -68,26 +71,21 @@ function Home() {
             <div className="mt-4 center">
                 <div><h4>Best Seller Products</h4></div>
                 <Slider {...settings}>
-                    {bestSellerProducts.map((product, index) => (
+                    {data.map((product, index) => (
                         <div key={index} >
                             <Card productData={product} />
                         </div>
                     ))}
                 </Slider>
 
-
                 <div className='mt-4'><h4>Top Rated Products</h4></div>
                 <Slider {...settings}>
-                    {topRatedProducts.map((product, index) => (
+                    {data.map((product, index) => (
                         <div key={index}>
                             <Card productData={product} />
                         </div>
                     ))}
                 </Slider>
-            </div>
-
-            <div className='mt-3'>
-                {data ? <div>{data.fact}</div> : <div>{error}</div>}
             </div>
             <Footer />
         </div>

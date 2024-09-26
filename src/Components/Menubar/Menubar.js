@@ -13,8 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Menubar() {
   return (
     <>
-    {/* fixed-top */}
-      <Navbar expand="lg" className="bg-body-tertiary ">
+      <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Brand href="/">Ecommerce</Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar" className="d-lg-none" />
@@ -24,31 +23,46 @@ function Menubar() {
               <Nav.Link href="/Shop">Shop</Nav.Link>
               <Nav.Link href="/Contact">Contact</Nav.Link>
               <Nav.Link href="/Megashop">Mega Shop</Nav.Link>
-              {/* Navbar Dropdown for Mega Menu */}
-              <NavDropdown title="Mega Menu" id="nav-dropdown">
-                <div
-                  className="dropdown-menu w-100 mt-0 p-3"
-                  aria-labelledby="navbarDropdown"
-                  style={{
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                  }}
-                >
+              
+              {/* Mega Menu Dropdown */}
+              <NavDropdown title="Mega Menu" id="mega-menu" className="position-static">
+                <Container fluid className="p-3">
                   <div className="row">
-                    <div className="col-md-4">
-                      <p className="mb-1 font-weight-bold">Category 1</p>
-                      <NavDropdown.Item href="#">Item 1</NavDropdown.Item>
-                      <NavDropdown.Item href="#">Item 2</NavDropdown.Item>
-                      <NavDropdown.Item href="#">Item 3</NavDropdown.Item>
+                    <div className="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                      <div className="list-group list-group-flush">
+                        <p className="mb-0 list-group-item text-uppercase font-weight-bold">
+                          Lorem ipsum
+                        </p>
+                        <NavDropdown.Item href="#">Dolor sit</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Amet consectetur</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Cras justo odio</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Adipisicing elit</NavDropdown.Item>
+                      </div>
                     </div>
-                    <div className="col-md-4">
-                      <p className="mb-1 font-weight-bold">Category 2</p>
-                      <NavDropdown.Item href="#">Item 4</NavDropdown.Item>
-                      <NavDropdown.Item href="#">Item 5</NavDropdown.Item>
-                      <NavDropdown.Item href="#">Item 6</NavDropdown.Item>
+                    <div className="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                      <div className="list-group list-group-flush">
+                        <p className="mb-0 list-group-item text-uppercase font-weight-bold">
+                          Explicabo voluptas
+                        </p>
+                        <NavDropdown.Item href="#">Perspiciatis quo</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Cras justo odio</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Laudantium maiores</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Provident dolor</NavDropdown.Item>
+                      </div>
+                    </div>
+                    <div className="col-md-6 col-lg-3 mb-3 mb-md-0">
+                      <div className="list-group list-group-flush">
+                        <p className="mb-0 list-group-item text-uppercase font-weight-bold">
+                          Iste quaerato
+                        </p>
+                        <NavDropdown.Item href="#">Cras justo odio</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Est iure</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Praesentium</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Laboriosam</NavDropdown.Item>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Container>
               </NavDropdown>
             </Nav>
             <Form className="d-flex">
@@ -62,7 +76,6 @@ function Menubar() {
             </Form>
           </Navbar.Collapse>
 
-          {/* Offcanvas menu for mobile */}
           <Navbar.Offcanvas
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
@@ -80,14 +93,7 @@ function Menubar() {
                 <Nav.Link href="/Shop">Shop</Nav.Link>
                 <Nav.Link href="/Contact">Contact</Nav.Link>
                 <NavDropdown title="Mega Menu" id="offcanvas-nav-dropdown">
-                  <div
-                    className="dropdown-menu w-100 mt-0 p-3"
-                    aria-labelledby="navbarDropdown"
-                    style={{
-                      borderTopLeftRadius: 0,
-                      borderTopRightRadius: 0,
-                    }}
-                  >
+                  <Container fluid className="p-3">
                     <div className="row">
                       <div className="col-md-6">
                         <p className="mb-1 font-weight-bold">Category 1</p>
@@ -100,7 +106,7 @@ function Menubar() {
                         <NavDropdown.Item href="#">Item 4</NavDropdown.Item>
                       </div>
                     </div>
-                  </div>
+                  </Container>
                 </NavDropdown>
               </Nav>
               <Form className="d-flex mt-3" role="search">

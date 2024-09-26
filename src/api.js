@@ -10,7 +10,7 @@ const config = {
 };
 
 // GET request
-export const fetchData = async (url) => {
+export const fetchProduct = async (url) => {
   try {
     const response = await axios.get(url, config);
     return response.data;
@@ -19,6 +19,7 @@ export const fetchData = async (url) => {
     throw error;
   }
 };
+
 
 // // // POST request
 // // export const postData = async (url, data) => {

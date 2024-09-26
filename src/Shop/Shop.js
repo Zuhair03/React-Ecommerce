@@ -3,12 +3,15 @@ import React, { useState, useEffect } from 'react';
 import Footer from '../Components/Footer/Footer';
 import Menubar from '../Components/Menubar/Menubar';
 import ProductCard from '../Components/Card/Card';
+import {  fetchProduct, } from '../api';
 import { AllProducts } from './Products/Allproducts';
-import { useNavigate } from 'react-router-dom';  // Import useNavigate
+import { useNavigate } from 'react-router-dom';  
 
 function Shop() {
     const [currentPage, setCurrentPage] = useState(1);
-    const productsPerPage = 5;
+    const [data, setData] =useState([]);
+    const [error, setError] = useState('Please try again');
+     const productsPerPage = 5;
     const navigate = useNavigate(); // Initialize navigate
 
     // Calculate the indexes for slicing the products array
@@ -21,8 +24,21 @@ function Shop() {
     // Scroll to the top whenever the currentPage changes
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        fetchProductData();
     }, [currentPage]);
 
+    const fetchProductData = async () => {
+        try{
+            const result = await  fetchProduct("http://localhost:3000/api/products");
+            console.log(result);
+            setData(result);
+        }
+        catch (error) {
+            setError(error.message);
+            console.error('Error fetching Product Data:', error);
+        }
+    
+    };
     const handleNext = () => {
         if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
@@ -70,7 +86,7 @@ function Shop() {
                     {/* Desktop view */}
                     <div className='col-12 d-none d-md-block mt-5'>
                         <div className='row gy-4'>
-                            {AllProducts.map((product, index) => (
+                            {data.map((product, index) => (
                                 <div className='col-12 col-sm-6 col-md-4 col-lg-3 mb-4' key={product.id}>
                                     <ProductCard 
                                         productData={product} 
