@@ -29,7 +29,7 @@ function Shop() {
 
     const fetchProductData = async () => {
         try{
-            const result = await  fetchProduct("http://localhost:3000/api/products");
+            const result = await  fetchProduct("http://localhost:3002/api/products");
             console.log(result);
             setData(result);
         }
@@ -51,8 +51,9 @@ function Shop() {
         }
     };
     const gotoProductDetails = (product) => {
-        navigate(`/product/${product.id}`);
+        navigate(`/product/${product._id}`);
     };
+    console.log("data",data)
     
     return (
         <>
@@ -65,7 +66,7 @@ function Shop() {
                             {currentProducts.map((product, index) => (
                                 <ProductCard 
                                     productData={product} 
-                                    key={product.id} 
+                                    key={product._id} 
                                     navigateToProducts={gotoProductDetails} 
                                 />
                             ))}

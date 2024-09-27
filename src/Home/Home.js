@@ -25,7 +25,7 @@ function Home() {
     
     const fetchProductData = async () => {
         try{
-            const result = await  fetchProduct("http://localhost:3000/api/products");
+            const result = await  fetchProduct("http://localhost:3002/api/products");
             console.log(result);
             setData(result);
         }

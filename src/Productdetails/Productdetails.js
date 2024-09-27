@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
 import Menubar from '../Components/Menubar/Menubar';
 import { Tab } from 'bootstrap/dist/js/bootstrap.bundle.min';
+import {  fetchProduct, } from '../api';
 import { Tabs } from 'react-bootstrap';
 import ProductCard from '../Components/Card/Card';
 import { AllProducts } from '../Shop/Products/Allproducts';
@@ -10,19 +11,29 @@ import { settings } from '../Home/settings';
 import Slider from 'react-slick';
 
 const Productdetails = ({ products }) => {
+    console.log("products")
     let { id } = useParams();
+    console.log("id", id)
+
     const product = products.find(item => item.id === parseInt(id, 10)); // Ensure `id` is compared correctly
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 5;
     const navigate = useNavigate(); // Initialize navigate
+    const [data, setData] =useState([]);
 
     // Calculate the indexes for slicing the products array
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = AllProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+    const [error, setError] = useState('Please try again');
 
     const totalPages = Math.ceil(AllProducts.length / productsPerPage);
 
+    useEffect(()=>{
+        if(id){
+            getProductsDetails(id)
+        }
+    },[])
     // Scroll to the top whenever the currentPage changes
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -43,8 +54,22 @@ const Productdetails = ({ products }) => {
         navigate(`/product/${product.id}`);
     };
 
-    if (!product) {
-        return <div>Product not found</div>;
+    // if (!product) {
+    //     return <div>Product not found</div>;
+    // }
+  async  function getProductsDetails(pid){
+        console.log(pid)
+            try{
+                const result = await fetchProduct(`http://localhost:3002/api/products/${pid}`);
+                console.log(result);
+                setData(result);
+            }
+            catch (error) {
+                setError(error.message);
+                console.error('Error fetching Product Data:', error);
+            }
+        
+
     }
     console.log("product", product);
     return (
@@ -55,11 +80,11 @@ const Productdetails = ({ products }) => {
                     <div className='row mt-5 mb-5'>
                         <div className='col-md-8 col-s-6 fluid'>
                             <div style={{ textAlign: "center" }}>
-                                <img src={product?.imageUrl} alt={product?.name} style={{ height: "500px",  }} />
+                                <img src={product?.imageUrl} alt={product?.product} style={{ height: "500px",  }} />
                             </div>
                         </div>
                         <div className='col-md-4'>
-                            <h2>{product?.name}</h2>
+                            <h2>{product?.product_name}</h2>
                             <h3>${product?.price}</h3>
                             <button className='btn btn-primary m-3'>Buy Now</button>
                             <button className='btn btn-secondary'>Add to Cart</button>
@@ -88,7 +113,7 @@ const Productdetails = ({ products }) => {
                     {/* Mobile view with pagination */}
                     <div className='d-md-none col-12 mt-5 mx-auto'>
                         <div className="d-flex flex-wrap justify-content-center" style={{ width: "100%", gap: "10px" }}>
-                            {currentProducts.map((product, index) => (
+                            {product.map((product, index) => (
                                 <ProductCard
                                     productData={product}
                                     key={product.id}
@@ -114,7 +139,7 @@ const Productdetails = ({ products }) => {
                         <div className='row'>
                             <Slider {...settings}>
                             {AllProducts.map((product, index) => (
-                                <div className='col-12 col-sm-6 col-md-4 col-lg-3 mb-4' key={product.id}>
+                                <div className='col-12 col-sm-6 col-md-4 col-lg-3 mb-4' key={product._id}>
                                     <ProductCard
                                         productData={product}
                                         navigateToProducts={gotoProductDetails}
