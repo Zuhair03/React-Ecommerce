@@ -33,7 +33,7 @@ const Productdetails = ({ products }) => {
         if(id){
             getProductsDetails(id)
         }
-    },[])
+    },[id])
     // Scroll to the top whenever the currentPage changes
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -80,12 +80,13 @@ const Productdetails = ({ products }) => {
                     <div className='row mt-5 mb-5'>
                         <div className='col-md-8 col-s-6 fluid'>
                             <div style={{ textAlign: "center" }}>
-                                <img src={product?.imageUrl} alt={product?.product} style={{ height: "500px",  }} />
+                                <img src={data?.product_name} alt={data?.product_name} style={{ height: "500px",  }} />
                             </div>
                         </div>
                         <div className='col-md-4'>
-                            <h2>{product?.product_name}</h2>
-                            <h3>${product?.price}</h3>
+                            <h2>{data?.product_name}</h2>
+                            <h3>${data?.product_price
+                            }</h3>
                             <button className='btn btn-primary m-3'>Buy Now</button>
                             <button className='btn btn-secondary'>Add to Cart</button>
                         </div>
@@ -96,7 +97,7 @@ const Productdetails = ({ products }) => {
                         <div className='col-12 p-3' style={{ border: '2px solid black', textAlign: "start"}}>
                             <Tabs style={ {justifyContent: "center"}}>
                                 <Tab eventKey="Description" title="Description">
-                                    <h5>{product?.description}</h5>
+                                    <h5>{data?.product_sellPrice}</h5>
                                 </Tab>
                                 <Tab eventKey="Review" title="Review">
                                     Tab content for Profile
@@ -113,7 +114,7 @@ const Productdetails = ({ products }) => {
                     {/* Mobile view with pagination */}
                     <div className='d-md-none col-12 mt-5 mx-auto'>
                         <div className="d-flex flex-wrap justify-content-center" style={{ width: "100%", gap: "10px" }}>
-                            {product.map((product, index) => (
+                            {AllProducts.map((product, index) => (
                                 <ProductCard
                                     productData={product}
                                     key={product.id}
